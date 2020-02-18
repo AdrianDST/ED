@@ -19,12 +19,15 @@ $button2 = [Button] @{
  $button3 = [Button] @{
  Text = 'No'
  }
+ $button4 = [Button] @{
+ Text = ''
+ }
  
 
 $button.Location = New-Object System.Drawing.Point (35,100)
 $button1.Location = New-Object System.Drawing.Point (140,100)
-$button2.Location = New-Object System.Drawing.Point (140,100)
-$button3.Location = New-Object System.Drawing.Point (30,100)
+$button2.Location = New-Object System.Drawing.Point (30,100)
+$button3.Location = New-Object System.Drawing.Point (140,100)
 
 
 $button.add_Click{
@@ -34,7 +37,6 @@ $Label.Text = "Subasta Patrocinadores,¿comprar?"
 $Label.AutoSize = $True
 $Form.Controls.Add($Label)
 $Form.ShowDialog($form.Controls.Add($button2))
-$Form.Controls.Add($Label)
 $Form.ShowDialog($form.Controls.Add($button3))
 
 
@@ -62,7 +64,7 @@ $Form.ShowDialog()
 $button3.add_Click{
 $Form = New-Object System.Windows.Forms.Form
 $Label = New-Object System.Windows.Forms.Label
-$Label.Text = "No has Comprado"
+$Label.Text = "No has Comprado,¿Comprar otra cosa?"
 $Label.AutoSize = $True
 $Form.Controls.Add($Label)
 $Form.ShowDialog()
