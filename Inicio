@@ -1,3 +1,4 @@
+#Primero se activa este,tienen que estar los dos abiertos y es para una resolucion 1920x1080
 $MouseEventSig=@’
 [DllImport("user32.dll",CharSet=CharSet.Auto, CallingConvention=CallingConvention.StdCall)]
 public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
