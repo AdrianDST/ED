@@ -1,0 +1,29 @@
+#Para la resolución de pantalla 1366 x 768
+
+$MouseEventSig=@’
+[DllImport("user32.dll",CharSet=CharSet.Auto, CallingConvention=CallingConvention.StdCall)]
+public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
+‘@
+
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(1800,10)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(322,50)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(950,610)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(950,510)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.SendKeys]::SendWait('PlayStationES')
+[System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(1150,350)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
