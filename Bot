@@ -1,0 +1,79 @@
+using assembly System.Windows.Forms
+using namespace System.Windows.Forms
+$Form = New-Object System.Windows.Forms.Form
+$Label = New-Object System.Windows.Forms.Label
+$Label.Text = "                       
+ 
+Bienvenido al bot de twitter,pulse el boton para continuar"
+$Label.AutoSize = $True
+$Form.MinimizeBox = $False
+$Form.MaximizeBox = $True
+$form.StartPosition = 'CenterScreen'
+
+$button1 = [Button] @{
+ Text = 'Empezar'
+ 
+}
+$button2 = [Button] @{
+ Text = 'Entendido'
+ 
+}
+
+
+
+$button1.Location = New-Object System.Drawing.Point (100,200)
+$button3.Location = New-Object System.Drawing.Point (100,100)
+$TextBox = New-Object System.Windows.Forms.TextBox
+$TextBox.Location = New-Object System.Drawing.Size(20,220)
+$TextBox.Size = New-Object System.Drawing.Size(260,20)
+
+$bot1 = New-Object System.Windows.Forms.TextBox
+$bot1.Location = New-Object System.Drawing.Size(20,220)
+$bot1.Size = New-Object System.Drawing.Size(260,20)
+
+
+
+
+$button1.add_Click{
+
+$Form = New-Object System.Windows.Forms.Form
+$Label = New-Object System.Windows.Forms.Label
+
+$Label.Text = "     Para poder utilizarlo ponga en la 
+     siguiente pestaña el nombre de la persona a 
+     la que desea seguir"
+$Label.AutoSize = $True
+$Form.Controls.Add($Label)
+$form.StartPosition = 'CenterScreen'
+$Form.ShowDialog($form.Controls.Add($button3))
+$form.StartPosition = 'CenterScreen'
+
+
+
+
+}
+
+
+$button2.add_Click{
+
+
+$Form = New-Object System.Windows.Forms.Form
+$Label = New-Object System.Windows.Forms.Label
+$Label.Text = "Escriba el usuario"
+$Label.AutoSize = $True
+$Form.Controls.Add($Label)
+$form.StartPosition = 'CenterScreen'
+$Form.KeyPreview = $True
+$Form.Add_KeyDown({if ($_.KeyCode -eq "Enter"){$Var=$bot1.Text;Start-Process https://twitter.com/$Var;}})
+$Form.Add_KeyDown({if ($_.KeyCode -eq "Escape"){$Form.Close()}})
+$Form.ShowDialog($Form.Controls.Add($bot1))
+
+
+}
+
+
+$form.Controls.Add($button1)
+$form.controls.add($pictureBox)
+$Form.Controls.Add($Label)
+
+$Form.ShowDialog()
