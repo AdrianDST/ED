@@ -1,0 +1,139 @@
+using assembly System.Windows.Forms
+using namespace System.Windows.Forms
+$Form = New-Object System.Windows.Forms.Form
+$Label = New-Object System.Windows.Forms.Label
+$Label.Text = "En que red social te gustaria seguir al usuario"
+$Label.AutoSize = $True
+$Form.MinimizeBox = $False
+$Form.MaximizeBox = $True
+$form.StartPosition = 'CenterScreen'
+$button1 = [Button] @{
+ Text = 'Twitter'
+ 
+}
+$button2 = [Button] @{
+ Text = 'Instagram'
+ 
+}
+$button3 = [Button] @{
+ Text = 'Facebook'
+ 
+}
+
+$button1.Location = New-Object System.Drawing.Point (0,200)
+$button2.Location = New-Object System.Drawing.Point (100,200)
+$button3.Location = New-Object System.Drawing.Point (200,200)
+$TextBox = New-Object System.Windows.Forms.TextBox
+$TextBox.Location = New-Object System.Drawing.Size(20,220)
+$TextBox.Size = New-Object System.Drawing.Size(260,20)
+
+$Subasta1 = New-Object System.Windows.Forms.TextBox
+$Subasta1.Location = New-Object System.Drawing.Size(20,220)
+$Subasta1.Size = New-Object System.Drawing.Size(260,20)
+
+
+
+
+$button1.add_Click{
+
+$MouseEventSig=@’
+[DllImport("user32.dll",CharSet=CharSet.Auto, CallingConvention=CallingConvention.StdCall)]
+public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
+‘@
+
+$MouseEvent = Add-Type -memberDefinition $MouseEventSig -name 'MouseEventWinApi' -passThru
+
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(1800,10)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(322,50)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(880,610)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.SendKeys]::SendWait('Microsoft')
+[System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(1150,350)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+
+
+
+
+}
+
+$button2.add_Click{
+
+$MouseEventSig=@’
+[DllImport("user32.dll",CharSet=CharSet.Auto, CallingConvention=CallingConvention.StdCall)]
+public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
+‘@
+
+$MouseEvent = Add-Type -memberDefinition $MouseEventSig -name 'MouseEventWinApi' -passThru
+
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(1800,10)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(322,50)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(940,610)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.SendKeys]::SendWait('Microsoft')
+[System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
+Start-Sleep -Seconds 4
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(980,170)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+
+
+
+
+}
+$button3.add_Click{
+
+$MouseEventSig=@’
+[DllImport("user32.dll",CharSet=CharSet.Auto, CallingConvention=CallingConvention.StdCall)]
+public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
+‘@
+
+$MouseEvent = Add-Type -memberDefinition $MouseEventSig -name 'MouseEventWinApi' -passThru
+
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(1800,10)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(322,50)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(1050,610)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+Start-Sleep -Seconds 2
+[System.Windows.Forms.SendKeys]::SendWait('Microsoft')
+[System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
+Start-Sleep -Seconds 5
+[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(700,450)
+$MouseEvent::mouse_event(0x00000002, 0, 0, 0, 0)
+$MouseEvent::mouse_event(0x00000004, 0, 0, 0, 0)
+
+}
+
+
+$form.Controls.Add($button1)
+$form.Controls.Add($button2)
+$form.Controls.Add($button3)
+$form.controls.add($pictureBox)
+$Form.Controls.Add($Label)
+
+$Form.ShowDialog()
