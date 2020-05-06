@@ -1,0 +1,96 @@
+using assembly System.Windows.Forms
+using namespace System.Windows.Forms
+$Form = New-Object System.Windows.Forms.Form
+$Label = New-Object System.Windows.Forms.Label
+$Label.Text = "En que red social te gustaria seguir al usuario"
+$Label.AutoSize = $True
+$Form.MinimizeBox = $False
+$Form.MaximizeBox = $True
+$form.StartPosition = 'CenterScreen'
+$button1 = [Button] @{
+ Text = 'Twitter'
+ 
+}
+$button2 = [Button] @{
+ Text = 'Instagram'
+ 
+}
+$button3 = [Button] @{
+ Text = 'Facebook'
+ 
+}
+
+
+
+$button1.Location = New-Object System.Drawing.Point (0,200)
+$button2.Location = New-Object System.Drawing.Point (100,200)
+$button3.Location = New-Object System.Drawing.Point (200,200)
+$TextBox = New-Object System.Windows.Forms.TextBox
+$TextBox.Location = New-Object System.Drawing.Size(20,220)
+$TextBox.Size = New-Object System.Drawing.Size(260,20)
+
+$bot1 = New-Object System.Windows.Forms.TextBox
+$bot1.Location = New-Object System.Drawing.Size(20,220)
+$bot1.Size = New-Object System.Drawing.Size(260,20)
+
+
+
+
+$button1.add_Click{
+$Form = New-Object System.Windows.Forms.Form
+$Label = New-Object System.Windows.Forms.Label
+$Label.Text = "Escriba el usuario"
+$Label.AutoSize = $True
+$Form.Controls.Add($Label)
+$form.StartPosition = 'CenterScreen'
+$Form.KeyPreview = $True
+$Form.Add_KeyDown({if ($_.KeyCode -eq "Enter"){$Var=$bot1.Text;Start-Process https://twitter.com/$Var;}})
+$Form.Add_KeyDown({if ($_.KeyCode -eq "Escape"){$Form.Close()}})
+$Form.ShowDialog($Form.Controls.Add($bot1))
+
+}
+$button2.add_Click{
+
+$Form = New-Object System.Windows.Forms.Form
+$Label = New-Object System.Windows.Forms.Label
+$Label.Text = "Escriba el usuario"
+$Label.AutoSize = $True
+$Form.Controls.Add($Label)
+$form.StartPosition = 'CenterScreen'
+$Form.KeyPreview = $True
+$Form.Add_KeyDown({if ($_.KeyCode -eq "Enter"){$Var=$bot1.Text;Start-Process https://www.instagram.com/$Var;}})
+$Form.Add_KeyDown({if ($_.KeyCode -eq "Escape"){$Form.Close()}})
+$Form.ShowDialog($Form.Controls.Add($bot1))
+
+
+
+
+}
+$button3.add_Click{
+
+$Form = New-Object System.Windows.Forms.Form
+$Label = New-Object System.Windows.Forms.Label
+$Label.Text = "Escriba el usuario"
+$Label.AutoSize = $True
+$Form.Controls.Add($Label)
+$form.StartPosition = 'CenterScreen'
+$Form.KeyPreview = $True
+$Form.Add_KeyDown({if ($_.KeyCode -eq "Enter"){$Var=$bot1.Text;Start-Process https://www.facebook.com/$Var;}})
+$Form.Add_KeyDown({if ($_.KeyCode -eq "Escape"){$Form.Close()}})
+$Form.ShowDialog($Form.Controls.Add($bot1))
+
+
+
+
+}
+
+
+
+
+$form.Controls.Add($button1)
+$form.Controls.Add($button2)
+$form.Controls.Add($button3)
+$form.controls.add($pictureBox)
+$Form.Controls.Add($Label)
+
+$Form.ShowDialog()
