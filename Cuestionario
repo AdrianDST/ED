@@ -1,0 +1,110 @@
+package Encuestas;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Scanner;
+
+public class Encus {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+       int opcion;
+       int enfermedad=0;
+        String respuesta1;
+        String respuesta2;
+        String respuesta3;
+        String respuesta4;
+        String respuesta5;
+        String respuesta6;
+        String respuesta7;
+        String respuesta8;
+        String respuesta9;
+        String respuesta10;
+
+
+
+
+        do {
+            System.out.println("¿Quiere hacer el test?");
+            System.out.println("1.Hacer test");
+            System.out.println("2.Salir");
+            opcion = teclado.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Responda con si o no");
+                    System.out.println("¿Ves borroso?");
+                    respuesta10= teclado.next().toLowerCase();
+                    if (respuesta10.equals("si")){
+                        enfermedad++;
+                    }
+                    System.out.println("¿Tienes fiebre?");
+                    respuesta1= teclado.next().toLowerCase();
+                    if (respuesta1.equals("si")){
+                        enfermedad++;
+                    }
+                    System.out.println("¿Toses mucho?");
+                    respuesta2= teclado.next().toLowerCase();
+                    if (respuesta2.equals("si")){
+                        enfermedad++;
+                    }
+                    System.out.println("¿Te duele la tripa?");
+                    respuesta3= teclado.next().toLowerCase();
+                    if (respuesta3.equals("si")){
+                        enfermedad++;
+                    }
+                    System.out.println("¿Te mareas mucho?");
+                    respuesta4= teclado.next().toLowerCase();
+                    if (respuesta4.equals("si")){
+                        enfermedad++;
+                    } System.out.println("¿Te duele la cabeza?");
+                    respuesta5= teclado.next().toLowerCase();
+                    if (respuesta5.equals("si")){
+                        enfermedad++;
+                    }
+                    System.out.println("¿Tienes conjuntivitis?");
+                    respuesta6= teclado.next().toLowerCase();
+                    if (respuesta6.equals("si")){
+                        enfermedad++;
+                    }
+                    System.out.println("¿Tienes diarrea?");
+                    respuesta7= teclado.next().toLowerCase();
+                    if (respuesta7.equals("si")){
+                        enfermedad++;
+                    }
+                    System.out.println("¿Tienes dificultad al respirar?");
+                    respuesta8= teclado.next().toLowerCase();
+                    if (respuesta8.equals("si")){
+                        enfermedad++;
+                    }
+                    System.out.println("¿Tienes fatiga?");
+                    respuesta9= teclado.next().toLowerCase();
+                    if (respuesta9.equals("si")){
+                        enfermedad++;
+                    }
+
+                    if (enfermedad>5){
+                        System.out.println("Usted puede estar en peligro,por favor vaya al hospital mas cercano");
+                        try {
+
+                            Desktop.getDesktop().browse(new URI("https://www.comunidad.madrid/servicios/salud/hospitales-red-servicio-madrileno-salud"));
+
+                        } catch (URISyntaxException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }else {
+                        System.out.println("Usted esta bien");
+                    }
+
+                    break;
+            }
+
+        } while (opcion != 2);
+        System.out.println("Saliendo");
+    }
+}
